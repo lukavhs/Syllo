@@ -1,0 +1,17 @@
+# Local development database only. The API and web app run directly on your machine.
+services:
+  db:
+    image: postgres:17
+    container_name: tutorflow-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tutorflow
+      POSTGRES_PASSWORD: tutorflow   # local-only password; production uses Neon
+      POSTGRES_DB: tutorflow
+    ports:
+      - "5432:5432"                  # host:container
+    volumes:
+      - pgdata:/var/lib/postgresql/data   # keeps data when the container restarts
+
+volumes:
+  pgdata:

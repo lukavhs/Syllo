@@ -1,0 +1,19 @@
+node_modules/
+dist/
+build/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.claude/settings.local.json
+*.tsbuildinfo
+
+# Private planning docs (not published)
+/App design form setup.pdf
+/CLAUDE.md
+/Tutoring_Center_Development_Plan.md
+/Tutoring_Center_Website_Requirements.md

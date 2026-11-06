@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+
+/*
+ * Syllo design tokens (docs/design/README.md → "Design tokens").
+ * Tailwind v4 turns each variable into utilities by prefix:
+ *   --color-*  → bg-*, text-*, border-*, ring-* …
+ *   --font-*   → font-*
+ *   --shadow-* → shadow-*
+ *   --radius-* → rounded-*
+ * They also stay usable as plain CSS variables, e.g. var(--color-syllo-ink),
+ * for libraries that take colors as props (FullCalendar, Recharts).
+ */
+@theme {
+  /* Drop Tailwind's default palette so only design colors exist. */
+  --color-*: initial;
+  --color-white: #ffffff;
+
+  /* Surfaces */
+  --color-syllo-canvas: #e3f6fc;
+  --color-syllo-canvas-deep: #bfe9f7;
+  --color-syllo-tint: #b5ebf8;
+  --color-syllo-brand: #90e0f3;
+  --color-syllo-brand-deep: #5cc6e2;
+
+  /* Text */
+  --color-syllo-ink: #0f2a3a;
+  --color-syllo-ink-on-brand: #0c3a49;
+  --color-syllo-ink-on-brand-muted: #134a5e; /* center name under the sidebar logo */
+  --color-syllo-text-2: #24404e;
+  --color-syllo-muted: #3f5b69;
+  --color-syllo-faint: #5f7c8a;
+
+  /* Lines */
+  --color-syllo-divider: #e8f4f8;
+  --color-syllo-border-soft: #c5e3ee;
+  --color-syllo-border-mid: #9fcbdb;
+
+  /* Accents */
+  --color-syllo-pink: #ff6f9f;
+  --color-syllo-pink-soft: #ff9ecb; /* decorative circle on the sign-in panel */
+  --color-syllo-lilac: #8c7cf0;
+
+  /* Status colors: soft = background, ink = text, plain = dot/solid */
+  --color-completed: #17894a;
+  --color-completed-soft: #c8f5d4;
+  --color-completed-ink: #155c32;
+
+  --color-noshow: #f0533f;
+  --color-noshow-soft: #ffd6d1;
+  --color-noshow-ink: #a3271b;
+
+  --color-unmarked: #ff9a3c;
+  --color-unmarked-soft: #ffe2bf;
+  --color-unmarked-ink: #8a4a00;
+
+  --color-pending: #f2c200;
+  --color-pending-soft: #fff0a6;
+  --color-pending-ink: #6b5400;
+
+  --color-scheduled: #8c7cf0;
+  --color-scheduled-soft: #ebe6ff;
+  --color-scheduled-ink: #2a2270;
+
+  --color-canceled: #9fcbdb;
+  --color-canceled-soft: #e8f4f8;
+  --color-canceled-ink: #5f7c8a;
+
+  /* Avatar rotation */
+  --color-avatar-1: #3aa8d8;
+  --color-avatar-2: #8c7cf0;
+  --color-avatar-3: #ff6f9f;
+  --color-avatar-4: #ff9a3c;
+  --color-avatar-5: #20a35a;
+  --color-avatar-6: #e0a800;
+  --color-avatar-7: #5b6cf0;
+  --color-avatar-8: #f0533f;
+
+  /* Typography */
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fredoka', ui-sans-serif, system-ui, sans-serif;
+
+  /* Radii */
+  --radius-cell: 10px;
+  --radius-block: 14px;
+  --radius-tile: 24px;
+  --radius-card: 28px;
+
+  /* "Sticker" shadows: hard offset, no blur */
+  --shadow-sticker: 4px 4px 0 #0f2a3a;
+  --shadow-sticker-sm: 3px 3px 0 #0f2a3a;
+  --shadow-sticker-xs: 1px 1px 0 #0f2a3a;
+  --shadow-sticker-pink: 4px 4px 0 #ff6f9f;
+}
+
+@layer base {
+  body {
+    @apply bg-syllo-canvas font-sans text-[15px] text-syllo-ink antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-syllo-ink);
+    outline-offset: 2px;
+  }
+}
